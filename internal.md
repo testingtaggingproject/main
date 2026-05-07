@@ -4,12 +4,13 @@ We're building our own website and generating each tag diagnostic to help us emp
 ## Before you begin
 
 Here's our workflow
-* Our website code: https://github.com/testingtaggingproject/main/tree/main
-* Live site: https://testingtaggingproject.github.io/main/
-* To publish a change to our website
-   1. Go to [index.html](https://screenshot.googleplex.com/ANQUDNb9rrBERNX)
-   2. Click the [Edit button](https://screenshot.googleplex.com/DGqtjef2o63yzzg)
-   3. Click [Commit changes...](https://screenshot.googleplex.com/58ZeD7YYTqNfati) and then [Commit changes](https://screenshot.googleplex.com/tBVLFzQVv5ojryX)
+* Website: https://testingtaggingproject.github.io/main/
+* Website code: https://github.com/testingtaggingproject/main/tree/main
+
+To make changes to our website:
+1. Go to [index.html](https://screenshot.googleplex.com/ANQUDNb9rrBERNX)
+2. Click the [Edit button](https://screenshot.googleplex.com/DGqtjef2o63yzzg)
+3. Click [Commit changes...](https://screenshot.googleplex.com/58ZeD7YYTqNfati) and then [Commit changes](https://screenshot.googleplex.com/tBVLFzQVv5ojryX)
 
 ## Part 1: Generate diagnostics
 
