@@ -37,7 +37,7 @@ Review each [tag diagnostic](https://docs.google.com/spreadsheets/d/1s2kmj77veNJ
 1. Information that's missing or too complex for users
 1. Where we can have the biggest impact on the user experience
 
-Check with [Rudhra](https://moma.corp.google.com/person/rudrabhatt) that this list is comprehensive. We've created a bunch of new diagnostics and had a lot more user interaction since this list was created.
+Check with [Rudhra](https://moma.corp.google.com/person/rudrabhatt) that this list is comprehensive since many diagnostics have been created in the past few months.
 
 ## Part 3: Take a look at the tag diagnostics data
 I've included the qualitative data here and the quantitative data is in the Engineering's data dashboard. Start to work with Eng and PM to get more information about who we're designing for. Look at our personas and identify who we're designing for. Start to map out their journey to the diagnostics. Investigate whether research is needed to help validate your hypotheses or if there are any user tests you can do independently.
