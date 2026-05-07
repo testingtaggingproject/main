@@ -15,10 +15,10 @@ To make changes to our website:
 ## Part 1: Generate diagnostics
 
 1. Create the following accounts:
-   * [Google Analytics](https://analytics.google.com/analytics/web/)
-   * [Google Ads dollar-a-day](https://support.google.com/ads-help/answer/10118361)
-   * Google Marketing Platform
-   * Shopify, Wordpress, Wix, or another content management system (CMS)
+   * P0 - [Google Analytics](https://analytics.google.com/analytics/web/)
+   * P0 - [Google Ads dollar-a-day](https://support.google.com/ads-help/answer/10118361)
+   * P1 - Shopify, Wordpress, Wix, or another content management system (CMS)
+   * P2 - [Google Marketing Platform](https://marketingplatform.google.com/about/) We may want help from Helen and the other AP folks
 1. See tag diagnostics in Data Manager (GADM) and Google Tag Experience (GTE)
 1. Send data to any of the products and see the data come through using both:
    * the Google tag (GTE)
