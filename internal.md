@@ -18,17 +18,17 @@ This is meant to pair with what JR created in [TaskFlow](https://taskflow.corp.g
 1. Open the preview in a new tab to see the site.
 
 #### Step 2: What to test
-*Initial setup*
+Initial setup
 * Create the following accounts
 * Google Analytics
 * Google Ads dollar-a-day
 * Google Marketing Platform
 * Shopify, Wordpress, Wix, or another content management system (CMS)
 
-*See tag diagnostics*
+See tag diagnostics
 Now that you have an account, go to your Tag Diagnostics and Data diagnostics.
 
-*Start sending data*
+Start sending data
 Send data to any of the products and see the data come through via both
 the Google tag (GTE)
 Google Tag Manager (GTM) through a container
