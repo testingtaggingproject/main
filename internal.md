@@ -1,5 +1,5 @@
 # About this project
-We're building our own website to generate each tag diagnostic. This will help us build empathy for our users and identify gaps that additional content could help users address. This is meant to pair with what JR created in [TaskFlow](https://taskflow.corp.google.com/workspaces/5127198/backlogs/4971214?sv=open&edit=b%2F496709611).
+We're building our own website and generating each tag diagnostic to help us empathize with our users and identify gaps in our content. This pairs with what JR created in [TaskFlow](https://taskflow.corp.google.com/workspaces/5127198/backlogs/4971214?sv=open&edit=b%2F496709611).
 
 ## Part 1: Launch and test tags
 Here are the steps to get started with tag diagnostics and empathize with what our users go through. Use in-product text, Ask Advisor (our AI chat tool), help center articles, videos, blogs, and other resources to figure these things out and document what you learn as you go.
