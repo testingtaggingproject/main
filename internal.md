@@ -13,20 +13,20 @@ Go to https://testingtaggingproject.github.io/main/.
 
 #### Step 2: What to test
 1. Create the following accounts
-  * Google Analytics
-  * Google Ads dollar-a-day
-  * Google Marketing Platform
-  * Shopify, Wordpress, Wix, or another content management system (CMS)
+   * Google Analytics
+   * Google Ads dollar-a-day
+   * Google Marketing Platform
+   * Shopify, Wordpress, Wix, or another content management system (CMS)
 1. See tag diagnostics in Data Manager (GADM) and Google Tag Experience (GTE)
 1. Send data to any of the products and see the data come through via both
-  * the Google tag (GTE)
-  * Google Tag Manager (GTM) through a container
+   * the Google tag (GTE)
+   * Google Tag Manager (GTM) through a container
 1. Generate diagnostics through the following:
-  1. Add domains to a Google Analytics configuration
-  1. Add a config command to your code
-  1. Set up conversion linker through Floodlight
-  1. Implement a transaction ID for a purchase event
-  1. If there's time: Set up consent mode
+   1. Add domains to a Google Analytics configuration
+   1. Add a config command to your code
+   1. Set up conversion linker through Floodlight
+   1. Implement a transaction ID for a purchase event
+   1. If there's time: Set up consent mode
 
 ### Part 2: Audit existing tag diagnostics messages
 Review each [tag diagnostic](https://docs.google.com/spreadsheets/d/1s2kmj77veNJnnHryVhpEGoPZXwVBrYo6ZEJwyCbb3KU/edit?resourcekey=0-dllxEsoE1JDGXcqp2frT_w&gid=1469072484#gid=1469072484) and look for
