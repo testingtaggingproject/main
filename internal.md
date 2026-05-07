@@ -40,7 +40,7 @@ Check with [Rudhra](https://moma.corp.google.com/person/rudrabhatt) that this li
 
 ## Part 3: Take a look at the tag diagnostics data
 To build a case for changes:
-* Meet with Eng, PM, and UXR to get more information about who we're designing for (and see [go/ads-ecosystem-personas](https://go/ads-ecosystem-personas))
+* Meet with Eng, PM, and UXR to get more information about who we're designing for (and see [go/ads-ecosystem-personas](http://go/ads-ecosystem-personas))
 * Investigate whether research is needed to help validate your hypotheses or if there are any user tests you can do independently
 * Map out their journeys to the diagnostics
 
