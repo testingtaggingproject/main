@@ -6,6 +6,7 @@ We're building our own website and generating each tag diagnostic to help us emp
 Here's our workflow:
 * Website: https://testingtaggingproject.github.io/main/
 * Website code: https://github.com/testingtaggingproject/main/tree/main
+* Google Analytics: https://analytics.google.com/analytics/web/#/a393159101p535252602/reports/intelligenthome
 
 To make changes to our website:
 1. Go to [index.html](https://screenshot.googleplex.com/ANQUDNb9rrBERNX)
