@@ -13,112 +13,237 @@
   
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Analytics Shop Sandbox | E-Commerce Tagging Practice</title>
+    <title>AnalyticsHub | Premium Tracking Assets & Templates</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Inter', sans-serif; }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
     </style>
 </head>
-<body class="bg-gray-50 min-h-screen pb-24">
+<body class="bg-slate-50 text-slate-900 min-h-screen flex flex-col relative overflow-x-hidden">
 
-    <!-- NAVIGATION BAR -->
-    <nav class="bg-white shadow-sm sticky top-0 z-40">
-        <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
-            <div class="text-xl font-bold text-indigo-600">AnalyticsAcademy <span class="text-xs text-gray-500 font-normal">Shop Sandbox</span></div>
-            <div class="flex items-center space-x-6">
-                <!-- Shopping Cart Icon / Button -->
-                <button onclick="openCart()" class="relative p-2 text-gray-600 hover:text-indigo-600 transition" id="cart-btn" aria-label="Open Shopping Cart">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+    <!-- PROMOTIONAL BANNER -->
+    <div class="bg-indigo-600 text-white py-2 px-4 text-center text-xs font-semibold tracking-wider">
+        🚀 LEVEL UP YOUR GA4 GAME — USE CODE <span class="underline">TAGMASTER</span> FOR 10% OFF
+    </div>
+
+    <!-- MAIN NAVIGATION -->
+    <nav class="bg-white/80 backdrop-blur-md border-b border-slate-100 sticky top-0 z-40 transition-all duration-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex justify-between items-center">
+            
+            <!-- Brand Logo -->
+            <div class="flex items-center gap-2">
+                <div class="w-10 h-10 rounded-xl bg-indigo-600 flex items-center justify-center text-white font-extrabold text-xl shadow-lg shadow-indigo-600/30">
+                    A
+                </div>
+                <div>
+                    <span class="text-lg font-extrabold bg-gradient-to-r from-indigo-600 to-violet-600 bg-clip-text text-transparent">AnalyticsHub</span>
+                    <span class="block text-[10px] text-slate-400 font-mono tracking-widest uppercase">Ecomm Sandbox</span>
+                </div>
+            </div>
+
+            <!-- Shop Navigation Links -->
+            <div class="hidden md:flex space-x-8 text-sm font-medium text-slate-600">
+                <a href="#" class="text-indigo-600 border-b-2 border-indigo-600 pb-1">Shop All</a>
+                <a href="#" class="hover:text-indigo-600 transition pb-1">Featured Assets</a>
+                <a href="#" class="hover:text-indigo-600 transition pb-1">Documentation</a>
+                <a href="#" class="hover:text-indigo-600 transition pb-1">Mentorship Portal</a>
+            </div>
+
+            <!-- Utility Icons -->
+            <div class="flex items-center space-x-4">
+                <button class="text-slate-400 hover:text-slate-600 transition p-2" aria-label="Search items">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                </button>
+                
+                <!-- Real-working Cart Icon & Count Badge -->
+                <button onclick="toggleCartDrawer(true)" class="relative p-2.5 bg-slate-50 hover:bg-slate-100 text-slate-700 hover:text-indigo-600 rounded-xl transition duration-200" id="cart-btn" aria-label="Open Cart Drawer">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
                     </svg>
-                    <!-- Cart Item Badge -->
-                    <span id="cart-count" class="hidden absolute -top-1 -right-1 bg-indigo-600 text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">0</span>
+                    <!-- Cart Bubble Badge -->
+                    <span id="cart-count" class="hidden absolute -top-1 -right-1 bg-indigo-600 text-white text-[10px] font-black rounded-full h-5 w-5 flex items-center justify-center border-2 border-white animate-bounce">0</span>
                 </button>
             </div>
         </div>
     </nav>
 
-    <!-- HERO SECTION -->
-    <header class="max-w-6xl mx-auto px-4 py-12 text-center">
-        <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">GA4 E-Commerce <span class="text-indigo-600">Tagging Sandbox</span></h1>
-        <p class="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">Interact with our shop to trigger and log official Google Analytics 4 standard e-commerce events. Inspect payload formatting instantly below!</p>
+    <!-- STOREFRONT HERO BANNER -->
+    <header class="bg-gradient-to-b from-indigo-50/50 to-transparent py-12 md:py-20 border-b border-slate-100">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <span class="px-3 py-1 bg-indigo-50 text-indigo-700 text-xs font-semibold rounded-full uppercase tracking-wider mb-4 inline-block">Interactive Training Store</span>
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-none mb-6">
+                Premium Analytics Assets <br class="hidden md:inline"/>
+                &amp; Production <span class="text-indigo-600 relative inline-block">GA4 Templates</span>
+            </h1>
+            <p class="text-base md:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed mb-8">
+                Test custom parameters, conversions, dynamic variables, and standard GA4 E-Commerce logging arrays by interacting directly with this interactive storefront.
+            </p>
+            
+            <!-- Category Filter Row (Visual Only to Simulate Real Ecomm UI) -->
+            <div class="flex flex-wrap justify-center gap-2 mt-4 max-w-lg mx-auto">
+                <button class="bg-indigo-600 text-white px-4 py-2 rounded-xl text-xs font-semibold shadow-md shadow-indigo-600/15">All Products</button>
+                <button class="bg-white border border-slate-200 text-slate-600 hover:border-slate-300 px-4 py-2 rounded-xl text-xs font-semibold transition">GTM Recipes</button>
+                <button class="bg-white border border-slate-200 text-slate-600 hover:border-slate-300 px-4 py-2 rounded-xl text-xs font-semibold transition">Reporting</button>
+                <button class="bg-white border border-slate-200 text-slate-600 hover:border-slate-300 px-4 py-2 rounded-xl text-xs font-semibold transition">Video Guides</button>
+            </div>
+        </div>
     </header>
 
-    <!-- PRODUCT CATALOG SECTION -->
-    <main class="max-w-6xl mx-auto px-4 mb-20">
-        <h2 class="text-2xl font-bold text-gray-800 mb-8">Available Learning Resources</h2>
-        <div id="product-grid" class="grid md:grid-cols-3 gap-8">
-            <!-- Dynamic products will be rendered here by Javascript -->
+    <!-- MAIN PRODUCTS CATALOG -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 flex-1 w-full">
+        <div class="flex justify-between items-end mb-10">
+            <div>
+                <h2 class="text-2xl font-extrabold text-slate-900 tracking-tight">Browse Premium Assets</h2>
+                <p class="text-sm text-slate-500 mt-1">Select a card or item details page to trigger GA4 items tracking arrays.</p>
+            </div>
+            <div class="text-xs text-slate-400 font-mono hidden sm:block">
+                Showing 3 of 3 Interactive Items
+            </div>
+        </div>
+
+        <div id="product-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Dynamic highly visual products will inject here via JS -->
         </div>
     </main>
 
-    <!-- EVENT DEBUGGER TERMINAL (Fixed in Bottom Corner) -->
-    <section id="event-console" class="fixed bottom-4 right-4 w-[380px] bg-gray-900 text-green-400 rounded-xl shadow-2xl border border-gray-700 z-50 flex flex-col max-h-[420px] transition-all duration-300 transform">
-        <header class="px-4 py-3 border-b border-gray-800 flex justify-between items-center bg-gray-950 rounded-t-xl">
+    <!-- SLIDE-OVER MODERN E-COMMERCE CART DRAWER -->
+    <div id="cart-drawer-backdrop" class="fixed inset-0 z-50 bg-slate-900/40 backdrop-blur-xs hidden transition-opacity duration-300" onclick="toggleCartDrawer(false)"></div>
+    <aside id="cart-drawer" class="fixed right-0 top-0 bottom-0 z-50 w-full max-w-md bg-white shadow-2xl flex flex-col translate-x-full transition-transform duration-300 ease-in-out">
+        <header class="p-6 border-b border-slate-100 flex justify-between items-center bg-slate-50">
+            <div class="flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+                </svg>
+                <h3 class="text-lg font-bold text-slate-900">Your Shopping Cart</h3>
+            </div>
+            <button onclick="toggleCartDrawer(false)" class="p-2 text-slate-400 hover:text-slate-600 rounded-lg hover:bg-slate-100 transition" aria-label="Close cart menu">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+        </header>
+
+        <!-- Cart Items List Container -->
+        <div id="cart-items-container" class="flex-1 overflow-y-auto p-6 space-y-4">
+            <!-- Dynamically populated or empty cart states rendered here -->
+        </div>
+
+        <!-- Checkout Summary Area -->
+        <footer id="cart-footer" class="p-6 border-t border-slate-100 bg-slate-50 space-y-4">
+            <!-- Generated dynamically based on cart values -->
+        </footer>
+    </aside>
+
+    <!-- LIVE DATA LAYER & GA4 EVENT LOG SCREEN (Transparent / Glassmorphism) -->
+    <section id="event-console" class="fixed bottom-4 right-4 w-[420px] bg-slate-950/95 backdrop-blur-md text-emerald-400 rounded-2xl shadow-2xl border border-slate-800 z-50 flex flex-col max-h-[460px] overflow-hidden transition-all duration-300 transform">
+        <header class="px-4 py-3.5 border-b border-slate-800 flex justify-between items-center bg-slate-950/80 rounded-t-2xl">
             <span class="font-mono text-xs font-bold flex items-center gap-2">
-                <span class="w-2.5 h-2.5 rounded-full bg-green-500 animate-pulse"></span>
-                GA4 DataLayer Live Feed
+                <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                GA4 / Tagging Live Console
             </span>
-            <div class="flex space-x-2">
-                <button onclick="clearLogs()" class="text-[10px] text-gray-400 hover:text-white px-2 py-0.5 rounded border border-gray-700 hover:border-gray-500 transition">Clear</button>
-                <button onclick="toggleConsole()" id="toggle-console-btn" class="text-[10px] text-gray-400 hover:text-white px-2 py-0.5 rounded border border-gray-700 hover:border-gray-500 transition">Minimize</button>
+            <div class="flex space-x-1">
+                <button onclick="clearLogs()" class="text-[10px] text-slate-400 hover:text-white px-2 py-1 rounded-lg border border-slate-800 hover:bg-slate-900 transition">Clear</button>
+                <button onclick="toggleConsole()" id="toggle-console-btn" class="text-[10px] text-indigo-400 hover:text-indigo-300 font-bold px-2 py-1 rounded-lg border border-slate-800 hover:bg-slate-900 transition">Minimize</button>
             </div>
         </header>
-        <div id="console-logs" class="p-4 overflow-y-auto text-xs font-mono flex-1 space-y-3 max-h-[350px]">
-            <div class="text-gray-500 italic">// Interact with the shop to track standard ecommerce GA4 events. Logs will generate dynamically here.</div>
+        <div id="console-logs" class="p-4 overflow-y-auto text-xs font-mono flex-1 space-y-4 max-h-[390px]">
+            <div class="text-slate-500 italic">// Interact with store elements to track GA4 E-commerce dataLayer pushes in real time.</div>
         </div>
     </section>
 
-    <!-- DYNAMIC DIALOG MODAL BASE (Used for Details, Cart, Checkout, Success UI states) -->
-    <div id="modal-backdrop" class="fixed inset-0 bg-black/50 z-50 hidden backdrop-blur-sm transition-opacity duration-300 flex items-center justify-center p-4">
-        <div id="modal-card" class="bg-white rounded-2xl max-w-lg w-full p-6 shadow-2xl relative transition-transform duration-300 transform scale-95 max-h-[90vh] overflow-y-auto">
-            <!-- Dynamic Modal Content Enters Here -->
+    <!-- POPUP DETAILS AND CHECKOUT MODAL BACKDROP -->
+    <div id="modal-backdrop" class="fixed inset-0 bg-slate-900/60 z-50 hidden backdrop-blur-sm transition-opacity duration-300 flex items-center justify-center p-4">
+        <div id="modal-card" class="bg-white rounded-3xl max-w-xl w-full p-8 shadow-2xl relative transition-transform duration-300 transform scale-95 max-h-[90vh] overflow-y-auto">
+            <!-- Modals (PDP details screen, Checkout inputs, Success Screens) render here -->
         </div>
     </div>
 
-    <footer class="py-10 text-center text-gray-400 text-xs border-t border-gray-200">
-        &copy; 2026 Tagging Mentorship Program. Built with pedagogical intent for code sandboxes.
+    <!-- CLEAN ECOMMERCE SITE FOOTER -->
+    <footer class="bg-slate-900 text-slate-400 py-12 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-4">
+            <div>
+                <span class="text-sm font-bold text-white">AnalyticsAcademy Storefront</span>
+                <p class="text-xs text-slate-500 mt-1">This site is completely mock data designed solely to master GA4 tag fires, triggers, and variables.</p>
+            </div>
+            <div class="text-xs text-slate-500">
+                &copy; 2026 Tagging Mentorship Program. Built for developers &amp; analytics students.
+            </div>
+        </div>
     </footer>
 
-    <!-- INTERACTIVE SHOPPING & TRACKING ENGINE -->
+    <!-- INTERACTIVE ENGINE & GA4 EVENT REGISTER -->
     <script>
-        // Mock Products Database
+        // Mock Realistic Ecomm Products
         const products = [
-            { id: "PROD_001", name: "GA4 Audit Master Checklist", price: 29.00, category: "Templates", brand: "AnalyticsAcademy", variant: "PDF Download", desc: "A comprehensive structural blueprint to audit configuration mismatches, custom metrics, and tag triggers in under an hour." },
-            { id: "PROD_002", name: "GTM Custom Event Recipes Bundle", price: 49.00, category: "Code Snippets", brand: "AnalyticsAcademy", variant: "JSON Export", desc: "Instantly importable JSON packages to track scroll depth, YouTube interactions, video player actions, and contact submissions." },
-            { id: "PROD_003", name: "Server-Side Tagging Masterclass", price: 199.00, category: "Courses", brand: "AnalyticsAcademy", variant: "Full Access Video", desc: "Deep-dive cohort course detailing cloud server deployments, custom clients, geo-routing, and security-first setups." }
+            { 
+                id: "PROD_001", 
+                name: "GA4 Configuration & Audit Checklist", 
+                price: 29.00, 
+                category: "Checklists", 
+                brand: "AnalyticsHub", 
+                variant: "Interactive Notion Template", 
+                rating: 4.9, 
+                reviews: 142, 
+                badge: "Best Seller", 
+                image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80",
+                desc: "Never miss a step again. Includes structural, behavioral, data privacy, and custom dimensions checklists to perform comprehensive audits on enterprise setups." 
+            },
+            { 
+                id: "PROD_002", 
+                name: "GTM Custom Tracking Code Recipe Pack", 
+                price: 59.00, 
+                category: "Developer Recipes", 
+                brand: "AnalyticsHub", 
+                variant: "JSON File Import", 
+                rating: 4.8, 
+                reviews: 94, 
+                badge: "New Release", 
+                image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80",
+                desc: "Instantly import containers containing pre-configured tags and triggers for YouTube plays, scroll mapping, click monitoring, and iframe submits." 
+            },
+            { 
+                id: "PROD_003", 
+                name: "Looker Studio Master Executive Dashboard", 
+                price: 119.00, 
+                category: "Dashboard Templates", 
+                brand: "AnalyticsHub", 
+                variant: "Looker Studio Direct Link", 
+                rating: 5.0, 
+                reviews: 73, 
+                badge: "Professional Choice", 
+                image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=600&q=80",
+                desc: "An executive-ready dynamic reporting dashboard cleanly tracking ROAS, conversion paths, e-commerce funnel leakages, and custom segmentation." 
+            }
         ];
 
         let cart = [];
         let isConsoleCollapsed = false;
 
-        // Custom Event Broadcaster / Interceptor
+        // Custom Console Logger & GA4 Bridge
         function trackGA4Event(eventName, params) {
-            // 1. Push standard call to Analytics Engine
+            // Push standard call to dataLayer / Analytics
             gtag('event', eventName, params);
 
-            // 2. Render visually inside UI Log Terminal
+            // Print visually into dynamic screen terminal
             const consoleLogs = document.getElementById('console-logs');
             if (consoleLogs.innerHTML.includes('// Interact with')) {
                 consoleLogs.innerHTML = '';
             }
 
             const logEntry = document.createElement('div');
-            logEntry.className = "border-b border-gray-800 pb-3 last:border-0";
+            logEntry.className = "border-b border-slate-800 pb-3 last:border-0";
             logEntry.innerHTML = `
                 <div class="flex justify-between items-center mb-1">
-                    <span class="text-indigo-400 font-bold text-[11px]">gtag("event", "${eventName}")</span>
-                    <span class="text-[9px] text-gray-500">${new Date().toLocaleTimeString()}</span>
+                    <span class="text-indigo-400 font-bold text-[11px] font-mono">gtag("event", "${eventName}")</span>
+                    <span class="text-[9px] text-slate-500">${new Date().toLocaleTimeString()}</span>
                 </div>
-                <pre class="text-[10px] text-gray-300 overflow-x-auto bg-gray-950 p-2.5 rounded border border-gray-800">${JSON.stringify(params, null, 2)}</pre>
+                <pre class="text-[10px] text-slate-300 overflow-x-auto bg-slate-900/60 p-3 rounded-xl border border-slate-800/80">${JSON.stringify(params, null, 2)}</pre>
             `;
             consoleLogs.appendChild(logEntry);
             consoleLogs.scrollTop = consoleLogs.scrollHeight;
         }
 
-        // Toggle Console Minimization
+        // Toggle Live Logger Collapsing UI
         function toggleConsole() {
             const el = document.getElementById('event-console');
             const logs = document.getElementById('console-logs');
@@ -131,41 +256,67 @@
                 isConsoleCollapsed = false;
             } else {
                 logs.style.display = 'none';
-                el.style.height = '42px';
+                el.style.height = '48px';
                 btn.innerText = 'Expand';
                 isConsoleCollapsed = true;
             }
         }
 
         function clearLogs() {
-            document.getElementById('console-logs').innerHTML = `<div class="text-gray-500 italic">// Cleared. Perform actions on-page to record events.</div>`;
+            document.getElementById('console-logs').innerHTML = `<div class="text-slate-500 italic">// Console cleared. Perform shop actions to log events.</div>`;
         }
 
-        // Load and Render Catalog Cards
+        // Initialize Store Catalog Cards
         window.addEventListener('DOMContentLoaded', () => {
             const grid = document.getElementById('product-grid');
             grid.innerHTML = products.map((prod, index) => `
-                <div class="bg-white border border-gray-200 rounded-2xl p-6 hover:shadow-xl transition flex flex-col justify-between group relative overflow-hidden">
-                    <div class="absolute top-0 right-0 bg-indigo-50 text-indigo-700 text-[10px] font-bold px-3 py-1 rounded-bl-xl uppercase tracking-wide">${prod.category}</div>
-                    <div>
-                        <div class="w-12 h-12 bg-indigo-100 text-indigo-600 rounded-xl flex items-center justify-center mb-4 font-bold text-lg">${index + 1}</div>
-                        <h3 class="text-xl font-bold text-gray-900 group-hover:text-indigo-600 transition mb-2">${prod.name}</h3>
-                        <p class="text-gray-500 text-sm mb-4 line-clamp-2">${prod.desc}</p>
+                <article class="bg-white border border-slate-100 rounded-3xl overflow-hidden hover:shadow-xl hover:translate-y-[-4px] transition-all duration-300 flex flex-col justify-between group">
+                    <div class="relative overflow-hidden aspect-video bg-slate-100">
+                        <!-- Simulated Product Image Thumbnail -->
+                        <img src="${prod.image}" alt="${prod.name}" class="w-full h-full object-cover group-hover:scale-105 transition-all duration-500"/>
+                        <span class="absolute top-4 left-4 bg-white/90 backdrop-blur-md text-slate-900 text-[10px] font-bold px-3 py-1.5 rounded-xl uppercase tracking-wider shadow-sm">
+                            ${prod.category}
+                        </span>
+                        ${prod.badge ? `
+                            <span class="absolute top-4 right-4 bg-indigo-600 text-white text-[10px] font-bold px-3 py-1.5 rounded-xl shadow-md shadow-indigo-600/20">
+                                ${prod.badge}
+                            </span>
+                        ` : ''}
                     </div>
-                    <div class="mt-6">
-                        <div class="flex justify-between items-center mb-4">
-                            <span class="text-2xl font-bold text-gray-900">$${prod.price.toFixed(2)}</span>
-                            <span class="text-xs text-gray-400 font-mono">[gtag: select_item]</span>
+                    
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <!-- Star Rating -->
+                            <div class="flex items-center gap-1.5 mb-2">
+                                <div class="flex text-amber-400">
+                                    ${'★'.repeat(Math.floor(prod.rating))}${'☆'.repeat(5 - Math.floor(prod.rating))}
+                                </div>
+                                <span class="text-xs font-semibold text-slate-500">${prod.rating} (${prod.reviews} reviews)</span>
+                            </div>
+                            
+                            <h3 class="text-lg font-bold text-slate-900 leading-snug hover:text-indigo-600 transition mb-2 cursor-pointer" onclick="selectProduct(${index})">
+                                ${prod.name}
+                            </h3>
+                            <p class="text-slate-500 text-xs leading-relaxed line-clamp-2">${prod.desc}</p>
                         </div>
-                        <button onclick="selectProduct(${index})" class="w-full bg-indigo-50 text-indigo-600 hover:bg-indigo-600 hover:text-white font-bold py-2.5 rounded-xl transition text-sm">View Details</button>
+
+                        <div class="mt-6 pt-5 border-t border-slate-100 flex items-center justify-between">
+                            <div>
+                                <span class="text-slate-400 block text-[9px] uppercase tracking-wider font-semibold">Price</span>
+                                <span class="text-2xl font-black text-slate-900">$${prod.price.toFixed(2)}</span>
+                            </div>
+                            <button onclick="selectProduct(${index})" class="bg-indigo-50 hover:bg-indigo-600 hover:text-white text-indigo-600 font-bold px-4 py-2.5 rounded-xl text-xs transition duration-200">
+                                View Details &rarr;
+                            </button>
+                        </div>
                     </div>
-                </div>
+                </article>
             `).join('');
 
-            // E-Commerce Event 1: view_item_list
+            // Fire GA4 view_item_list Event (Required for item impressions tracking)
             trackGA4Event('view_item_list', {
-                item_list_id: "catalog_all",
-                item_list_name: "Resource Catalog",
+                item_list_id: "catalog_grid",
+                item_list_name: "Catalog Main Grid",
                 items: products.map((prod, index) => ({
                     item_id: prod.id,
                     item_name: prod.name,
@@ -178,7 +329,22 @@
             });
         });
 
-        // Open Dialog Modal Helper
+        // Trigger Sidebar Cart Slide-In Drawer Animation
+        function toggleCartDrawer(isOpen) {
+            const backdrop = document.getElementById('cart-drawer-backdrop');
+            const drawer = document.getElementById('cart-drawer');
+            
+            if (isOpen) {
+                backdrop.classList.remove('hidden');
+                drawer.classList.remove('translate-x-full');
+                renderCartUI();
+            } else {
+                backdrop.classList.add('hidden');
+                drawer.classList.add('translate-x-full');
+            }
+        }
+
+        // Trigger Detail Screen / Checkout Form Modal Backdrop
         function showModal(contentHtml) {
             const backdrop = document.getElementById('modal-backdrop');
             const card = document.getElementById('modal-card');
@@ -187,21 +353,20 @@
             backdrop.classList.add('flex');
         }
 
-        // Close Dialog Modal Helper
         function closeModal() {
             const backdrop = document.getElementById('modal-backdrop');
             backdrop.classList.remove('flex');
             backdrop.classList.add('hidden');
         }
 
-        // Action: Click Product Card
+        // Action: Product Detail Click
         function selectProduct(index) {
             const prod = products[index];
 
-            // E-Commerce Event 2: select_item
+            // 1. GA4 select_item
             trackGA4Event('select_item', {
-                item_list_id: "catalog_all",
-                item_list_name: "Resource Catalog",
+                item_list_id: "catalog_grid",
+                item_list_name: "Catalog Main Grid",
                 items: [{
                     item_id: prod.id,
                     item_name: prod.name,
@@ -213,7 +378,7 @@
                 }]
             });
 
-            // E-Commerce Event 3: view_item
+            // 2. GA4 view_item (Detailed view context)
             trackGA4Event('view_item', {
                 currency: "USD",
                 value: prod.price,
@@ -228,30 +393,36 @@
                 }]
             });
 
-            // Open Detail Modal (PDP View)
-            const detailsHtml = `
-                <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-700">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+            // Render Product Detail Modal (Simulating PDP Screen)
+            const detailHtml = `
+                <button onclick="closeModal()" class="absolute top-6 right-6 text-slate-400 hover:text-slate-600 p-2 hover:bg-slate-50 rounded-xl transition">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path></svg>
                 </button>
-                <div class="mb-2"><span class="text-xs bg-indigo-100 text-indigo-700 px-2.5 py-1 rounded-full font-bold uppercase">${prod.category}</span></div>
-                <h3 class="text-2xl font-bold text-gray-900 mb-2">${prod.name}</h3>
-                <p class="text-sm font-semibold text-gray-400 mb-4">Format: ${prod.variant}</p>
-                <p class="text-gray-600 text-sm leading-relaxed mb-6">${prod.desc}</p>
-                <div class="flex justify-between items-center border-t border-gray-100 pt-6">
-                    <div>
-                        <p class="text-[10px] uppercase text-gray-400 tracking-wider font-semibold">Total Price</p>
-                        <p class="text-3xl font-extrabold text-gray-900">$${prod.price.toFixed(2)}</p>
+                <div class="grid md:grid-cols-2 gap-6 mt-4">
+                    <div class="rounded-2xl overflow-hidden aspect-square bg-slate-100">
+                        <img src="${prod.image}" alt="${prod.name}" class="w-full h-full object-cover" />
                     </div>
-                    <div class="text-right">
-                        <span class="text-[10px] text-gray-400 font-mono block mb-2">[gtag: add_to_cart]</span>
-                        <button onclick="addToCart(${index})" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold px-6 py-3 rounded-xl transition shadow-lg shadow-indigo-600/20 text-sm">Add to Cart</button>
+                    <div class="flex flex-col justify-between">
+                        <div>
+                            <span class="text-indigo-600 text-xs font-bold uppercase tracking-wider block mb-1">${prod.category}</span>
+                            <h3 class="text-xl font-bold text-slate-900 leading-snug mb-3">${prod.name}</h3>
+                            <span class="text-xs font-mono text-slate-400 block mb-4">Format: ${prod.variant}</span>
+                            <p class="text-slate-500 text-xs leading-relaxed mb-6">${prod.desc}</p>
+                        </div>
+                        <div class="pt-4 border-t border-slate-100">
+                            <span class="text-[10px] text-slate-400 uppercase tracking-widest block font-bold mb-1">Interactive Price</span>
+                            <span class="text-3xl font-extrabold text-slate-900 block mb-4">$${prod.price.toFixed(2)}</span>
+                            <button onclick="addToCart(${index})" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3.5 rounded-xl transition shadow-lg shadow-indigo-600/20 text-xs uppercase tracking-wider">
+                                Add to Cart
+                            </button>
+                        </div>
                     </div>
                 </div>
             `;
-            showModal(detailsHtml);
+            showModal(detailHtml);
         }
 
-        // Action: Click "Add to Cart"
+        // Action: Cart Addition Trigger
         function addToCart(index) {
             const prod = products[index];
             const existing = cart.find(item => item.id === prod.id);
@@ -262,7 +433,7 @@
                 cart.push({ ...prod, quantity: 1 });
             }
 
-            // E-Commerce Event 4: add_to_cart
+            // 3. GA4 add_to_cart
             trackGA4Event('add_to_cart', {
                 currency: "USD",
                 value: prod.price,
@@ -277,99 +448,110 @@
                 }]
             });
 
-            updateCartBadge();
+            updateHeaderBadge();
             closeModal();
+            toggleCartDrawer(true); // Automatically slide in cart panel
         }
 
-        // Update Cart Header Badge Bubble
-        function updateCartBadge() {
+        // Cart Drawer Renderer HTML Logic
+        function renderCartUI() {
+            const container = document.getElementById('cart-items-container');
+            const footer = document.getElementById('cart-footer');
+
+            if (cart.length === 0) {
+                container.innerHTML = `
+                    <div class="text-center py-16 flex flex-col items-center justify-center">
+                        <div class="w-16 h-16 rounded-full bg-slate-50 flex items-center justify-center text-slate-400 mb-4">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg>
+                        </div>
+                        <h4 class="font-extrabold text-slate-900 text-sm">Cart is currently empty</h4>
+                        <p class="text-slate-400 text-xs max-w-xs mt-2">Select and view premium assets in our store directory to test shopping arrays.</p>
+                    </div>
+                `;
+                footer.innerHTML = `
+                    <button onclick="toggleCartDrawer(false)" class="w-full bg-slate-900 hover:bg-black text-white font-bold py-3.5 rounded-xl text-xs uppercase tracking-wider transition">
+                        Back to Browsing
+                    </button>
+                `;
+                return;
+            }
+
+            // 4. GA4 view_cart (Fires when they open drawer containing items)
+            trackGA4Event('view_cart', {
+                currency: "USD",
+                value: getCartSubtotal(),
+                items: cart.map(item => ({
+                    item_id: item.id,
+                    item_name: item.name,
+                    item_brand: item.brand,
+                    item_category: item.category,
+                    item_variant: item.variant,
+                    price: item.price,
+                    quantity: item.quantity
+                }))
+            });
+
+            // Populate Cart Items
+            container.innerHTML = cart.map((item, idx) => `
+                <div class="flex gap-4 items-center border-b border-slate-100 pb-4">
+                    <img src="${item.image}" alt="${item.name}" class="w-14 h-14 object-cover rounded-xl bg-slate-50" />
+                    <div class="flex-1">
+                        <h4 class="font-bold text-slate-900 text-xs line-clamp-1">${item.name}</h4>
+                        <span class="text-[10px] text-slate-400 block mt-0.5">Format: ${item.variant}</span>
+                        <div class="flex items-center justify-between mt-2">
+                            <span class="text-xs text-slate-500">${item.quantity} x $${item.price.toFixed(2)}</span>
+                            <button onclick="removeFromCart(${idx})" class="text-[10px] text-red-500 hover:underline">Remove</button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+
+            // Render Cart Drawer Footer Summary
+            footer.innerHTML = `
+                <div class="space-y-1.5 text-xs text-slate-500">
+                    <div class="flex justify-between font-medium">
+                        <span>Items Subtotal:</span>
+                        <span class="text-slate-900 font-bold">$${getCartSubtotal().toFixed(2)}</span>
+                    </div>
+                    <p class="text-[10px] text-slate-400">Shipping and tax calculations calculated at final checkout screen.</p>
+                </div>
+                <button onclick="beginCheckout()" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3.5 rounded-xl text-xs uppercase tracking-wider transition duration-200 mt-2 shadow-lg shadow-indigo-600/15">
+                    Proceed to checkout
+                </button>
+            `;
+        }
+
+        // Action: Cart Removal Link Click
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            updateHeaderBadge();
+            renderCartUI();
+        }
+
+        // Standard helpers
+        function updateHeaderBadge() {
             const badge = document.getElementById('cart-count');
-            const totalQty = cart.reduce((acc, item) => acc + item.quantity, 0);
-            if (totalQty > 0) {
-                badge.innerText = totalQty;
+            const qty = cart.reduce((acc, item) => acc + item.quantity, 0);
+            if (qty > 0) {
+                badge.innerText = qty;
                 badge.classList.remove('hidden');
             } else {
                 badge.classList.add('hidden');
             }
         }
 
-        // Calculations helper
-        function getCartValue() {
+        function getCartSubtotal() {
             return parseFloat(cart.reduce((acc, item) => acc + (item.price * item.quantity), 0).toFixed(2));
         }
 
-        // Action: Click Shopping Cart Icon
-        function openCart() {
-            if (cart.length === 0) {
-                const emptyCartHtml = `
-                    <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-700">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
-                    </button>
-                    <div class="text-center py-10">
-                        <div class="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" /></svg>
-                        </div>
-                        <h3 class="text-lg font-bold text-gray-900 mb-2">Your Cart is Empty</h3>
-                        <p class="text-gray-500 text-sm mb-6">Select interactive product guides to construct a checkout scenario.</p>
-                        <button onclick="closeModal()" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold px-5 py-2 rounded-lg text-sm transition">Back to Store</button>
-                    </div>
-                `;
-                showModal(emptyCartHtml);
-                return;
-            }
-
-            // E-Commerce Event 5: view_cart
-            trackGA4Event('view_cart', {
-                currency: "USD",
-                value: getCartValue(),
-                items: cart.map(item => ({
-                    item_id: item.id,
-                    item_name: item.name,
-                    item_brand: item.brand,
-                    item_category: item.category,
-                    item_variant: item.variant,
-                    price: item.price,
-                    quantity: item.quantity
-                }))
-            });
-
-            // Open Modal showing current cart
-            const cartHtml = `
-                <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-700">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
-                </button>
-                <h3 class="text-xl font-bold text-gray-900 mb-6">Review Shopping Cart</h3>
-                <div class="space-y-4 mb-6">
-                    ${cart.map(item => `
-                        <div class="flex justify-between items-center border-b border-gray-100 pb-4">
-                            <div>
-                                <h4 class="font-bold text-gray-800 text-sm">${item.name}</h4>
-                                <p class="text-xs text-gray-400">Qty: ${item.quantity} &bull; $${item.price.toFixed(2)} ea</p>
-                            </div>
-                            <span class="font-semibold text-gray-900 text-sm">$${(item.price * item.quantity).toFixed(2)}</span>
-                        </div>
-                    `).join('')}
-                </div>
-                <div class="bg-gray-50 p-4 rounded-xl mb-6">
-                    <div class="flex justify-between font-bold text-gray-900">
-                        <span>Cart Subtotal:</span>
-                        <span>$${getCartValue().toFixed(2)}</span>
-                    </div>
-                </div>
-                <div class="flex justify-between items-center pt-2">
-                    <span class="text-xs text-gray-400 font-mono">[gtag: begin_checkout]</span>
-                    <button onclick="beginCheckout()" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold px-6 py-3 rounded-xl transition text-sm">Proceed to Checkout</button>
-                </div>
-            `;
-            showModal(cartHtml);
-        }
-
-        // Action: Click "Proceed to Checkout"
+        // Action: Cart "Proceed to Checkout" Submit Click
         function beginCheckout() {
-            // E-Commerce Event 6: begin_checkout
+            toggleCartDrawer(false);
+
+            // 5. GA4 begin_checkout
             trackGA4Event('begin_checkout', {
                 currency: "USD",
-                value: getCartValue(),
+                value: getCartSubtotal(),
                 items: cart.map(item => ({
                     item_id: item.id,
                     item_name: item.name,
@@ -381,61 +563,80 @@
                 }))
             });
 
-            // Open mock form submission modal
+            // Generate Modal Form UI
+            const sub = getCartSubtotal();
+            const tax = parseFloat((sub * 0.08).toFixed(2));
+            const grandTotal = parseFloat((sub + tax).toFixed(2));
+
             const checkoutHtml = `
-                <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-700">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+                <button onclick="closeModal()" class="absolute top-6 right-6 text-slate-400 hover:text-slate-600 p-2 hover:bg-slate-50 rounded-xl transition">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path></svg>
                 </button>
-                <h3 class="text-xl font-bold text-gray-900 mb-6">Simulated Checkout Form</h3>
-                <form id="checkout-form" onsubmit="submitPurchase(event)" class="space-y-4">
-                    <div>
-                        <label class="block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">Customer Name</label>
-                        <input type="text" id="cust_name" placeholder="Alex Tagman" class="w-full p-3 border rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none text-sm" required>
+                
+                <h3 class="text-xl font-black text-slate-900 mb-2">Simulated Order Payment</h3>
+                <p class="text-xs text-slate-500 mb-6">Complete the simulated purchase sequence to verify purchase event tagging structures.</p>
+                
+                <form onsubmit="submitPurchase(event)" class="space-y-4">
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-2">First Name</label>
+                            <input type="text" placeholder="Alex" class="w-full p-3.5 border border-slate-200 rounded-xl text-xs outline-none focus:ring-2 focus:ring-indigo-500/50" required>
+                        </div>
+                        <div>
+                            <label class="block text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-2">Last Name</label>
+                            <input type="text" placeholder="Tester" class="w-full p-3.5 border border-slate-200 rounded-xl text-xs outline-none focus:ring-2 focus:ring-indigo-500/50" required>
+                        </div>
                     </div>
                     <div>
-                        <label class="block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">Email Address</label>
-                        <input type="email" id="cust_email" placeholder="alex@taggingacademy.com" class="w-full p-3 border rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none text-sm" required>
+                        <label class="block text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-2">Email Address</label>
+                        <input type="email" placeholder="alex.tagger@example.com" class="w-full p-3.5 border border-slate-200 rounded-xl text-xs outline-none focus:ring-2 focus:ring-indigo-500/50" required>
                     </div>
                     <div>
-                        <label class="block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">Mock Credit Card (Test Only)</label>
-                        <input type="text" placeholder="4242 4242 4242 4242" class="w-full p-3 border border-indigo-200 bg-indigo-50/30 rounded-xl outline-none text-sm text-gray-600" disabled>
+                        <label class="block text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-2">Sandbox Credit Card Details</label>
+                        <div class="p-3.5 border border-indigo-100 bg-indigo-50/20 rounded-xl text-xs text-indigo-700 font-semibold flex justify-between items-center">
+                            <span>•••• •••• •••• 4242 (Simulated)</span>
+                            <span class="text-[9px] uppercase tracking-wider bg-indigo-100 px-2 py-0.5 rounded-lg text-indigo-800">Auto Test</span>
+                        </div>
                     </div>
-                    <div class="bg-gray-50 p-4 rounded-xl my-4 space-y-1 text-sm text-gray-600">
+
+                    <!-- Receipt Subtotals breakdown -->
+                    <div class="p-5 bg-slate-50 rounded-2xl border border-slate-100 space-y-2 text-xs text-slate-500 mt-6">
                         <div class="flex justify-between">
-                            <span>Cart Total:</span>
-                            <span>$${getCartValue().toFixed(2)}</span>
+                            <span>Basket Total:</span>
+                            <span class="text-slate-900 font-semibold">$${sub.toFixed(2)}</span>
                         </div>
                         <div class="flex justify-between">
-                            <span>Sales Tax (8%):</span>
-                            <span>$${(getCartValue() * 0.08).toFixed(2)}</span>
+                            <span>Standard Tax (8%):</span>
+                            <span class="text-slate-900 font-semibold">$${tax.toFixed(2)}</span>
                         </div>
-                        <div class="flex justify-between font-bold text-gray-900 text-base pt-2 border-t">
-                            <span>Total Charge:</span>
-                            <span>$${(getCartValue() * 1.08).toFixed(2)}</span>
+                        <div class="flex justify-between text-slate-900 font-black text-sm pt-2.5 border-t border-slate-200">
+                            <span>Amount Due:</span>
+                            <span>$${grandTotal.toFixed(2)}</span>
                         </div>
                     </div>
-                    <div class="flex justify-between items-center pt-2">
-                        <span class="text-xs text-gray-400 font-mono">[gtag: purchase]</span>
-                        <button type="submit" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold px-8 py-3 rounded-xl transition text-sm">Place Order ($${(getCartValue() * 1.08).toFixed(2)})</button>
-                    </div>
+
+                    <button type="submit" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-extrabold py-4 rounded-xl text-xs uppercase tracking-wider transition duration-200 shadow-lg shadow-indigo-600/15">
+                        Place Simulated Order &bull; $${grandTotal.toFixed(2)}
+                    </button>
                 </form>
             `;
             showModal(checkoutHtml);
         }
 
-        // Action: Submit checkout-form (Mock payment success)
+        // Action: Complete Form Purchase Submission
         function submitPurchase(e) {
             e.preventDefault();
 
-            const finalCartValue = getCartValue();
-            const taxAmt = parseFloat((finalCartValue * 0.08).toFixed(2));
-            const transactionId = "T_" + Math.floor(100000 + Math.random() * 900000);
+            const sub = getCartSubtotal();
+            const tax = parseFloat((sub * 0.08).toFixed(2));
+            const grandTotal = parseFloat((sub + tax).toFixed(2));
+            const mockTxId = "TXN-" + Math.floor(100000 + Math.random() * 900000);
 
-            // E-Commerce Event 7: purchase
+            // 6. GA4 purchase (Purchase transaction conversion)
             trackGA4Event('purchase', {
-                transaction_id: transactionId,
-                value: parseFloat((finalCartValue + taxAmt).toFixed(2)),
-                tax: taxAmt,
+                transaction_id: mockTxId,
+                value: grandTotal,
+                tax: tax,
                 shipping: 0.00,
                 currency: "USD",
                 items: cart.map(item => ({
@@ -449,24 +650,31 @@
                 }))
             });
 
-            // Wipe Checkout Context
+            // Wipe basket state arrays
             cart = [];
-            updateCartBadge();
+            updateHeaderBadge();
 
-            // Render confirmation screen
+            // Render modern Success Screen Modal
             const successHtml = `
-                <div class="text-center py-8">
-                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                <div class="text-center py-6">
+                    <div class="w-16 h-16 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center mx-auto mb-4 border border-emerald-100 shadow-md shadow-emerald-100/50">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
                     </div>
-                    <h3 class="text-2xl font-bold text-gray-900 mb-2">Order Confirmed!</h3>
-                    <p class="text-gray-500 text-sm mb-1">Simulated payment processed successfully.</p>
-                    <p class="text-indigo-600 font-mono text-xs font-bold mb-6">Transaction ID: ${transactionId}</p>
-                    <div class="bg-gray-50 p-4 rounded-xl border border-gray-100 text-left mb-6 text-xs text-gray-600 leading-relaxed">
-                        <span class="font-bold text-gray-800 block mb-1">Analytics Verification Check:</span>
-                        A <code class="font-bold text-indigo-700 bg-indigo-50 px-1 rounded">purchase</code> event was sent directly to your GA4 property tracking total values, custom items, and index locations. Inspect the Logger at the bottom-right of the viewport to view details!
+                    
+                    <h3 class="text-2xl font-black text-slate-900 mb-1">Receipt Confirmed!</h3>
+                    <p class="text-xs text-slate-500 mb-1">Thank you for ordering. This sandbox payment transaction completed successfully.</p>
+                    <span class="inline-block text-xs font-mono font-bold text-indigo-600 bg-indigo-50 px-3 py-1 rounded-full mt-2 mb-6">
+                        ID: ${mockTxId}
+                    </span>
+
+                    <div class="p-5 bg-slate-50 border border-slate-100 rounded-2xl text-left text-xs text-slate-600 space-y-2">
+                        <span class="font-extrabold text-slate-800 block">Console Tag Audit:</span>
+                        <p class="leading-relaxed">An ecommerce <code class="font-bold text-indigo-700 bg-indigo-100/60 px-1.5 py-0.5 rounded">purchase</code> trigger sequence has logged. Inspect the terminal log window in the bottom-right of your screen to analyze data array specifications.</p>
                     </div>
-                    <button onclick="closeModal()" class="bg-gray-900 hover:bg-black text-white font-bold px-6 py-2.5 rounded-xl text-sm transition">Continue Sandbox Testing</button>
+
+                    <button onclick="closeModal()" class="mt-6 w-full bg-slate-900 hover:bg-black text-white font-bold py-3.5 rounded-xl text-xs uppercase tracking-wider transition">
+                        Continue Store Testing
+                    </button>
                 </div>
             `;
             showModal(successHtml);
