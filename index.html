@@ -132,8 +132,8 @@
         </footer>
     </aside>
 
-    <!-- LIVE DATA LAYER & GA4 EVENT LOG SCREEN -->
-    <section id="event-console" class="fixed bottom-4 right-4 w-[420px] bg-stone-950/95 backdrop-blur-md text-emerald-400 rounded-2xl shadow-2xl border border-stone-800 z-50 flex flex-col max-h-[460px] overflow-hidden transition-all duration-300 transform">
+    <!-- LIVE DATA LAYER & GA4 EVENT LOG SCREEN (Positioned bottom-left to avoid blocking right hand actions) -->
+    <section id="event-console" class="fixed bottom-4 left-4 w-[420px] bg-stone-950/95 backdrop-blur-md text-emerald-400 rounded-2xl shadow-2xl border border-stone-800 z-50 flex flex-col max-h-[460px] overflow-hidden transition-all duration-300 transform">
         <header class="px-4 py-3.5 border-b border-stone-800 flex justify-between items-center bg-stone-950/80 rounded-t-2xl">
             <span class="font-mono text-xs font-bold flex items-center gap-2">
                 <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
@@ -261,7 +261,7 @@
         }
 
         function clearLogs() {
-            document.getElementById('console-logs').innerHTML = `<div class="text-stone-500 italic">// Console cleared. Perform menu actions to log events.</div>`;
+            document.getElementById('console-logs').innerHTML = `<div class="text-slate-500 italic">// Console cleared. Perform menu actions to log events.</div>`;
         }
 
         // Initialize Store Catalog Cards
@@ -351,6 +351,7 @@
             backdrop.classList.add('flex');
         }
 
+        // Close Detail Modal
         function closeModal() {
             const backdrop = document.getElementById('modal-backdrop');
             backdrop.classList.remove('flex');
@@ -358,6 +359,7 @@
         }
 
         // Action: Product Detail Click
+        // This fires the select_item and view_item events to track a PDP (Product Detail Page) visit.
         function selectProduct(index) {
             const prod = products[index];
 
@@ -376,7 +378,7 @@
                 }]
             });
 
-            // 2. GA4 view_item (Detailed view context)
+            // 2. GA4 view_item
             trackGA4Event('view_item', {
                 currency: "USD",
                 value: prod.price,
@@ -420,7 +422,7 @@
             showModal(detailHtml);
         }
 
-        // Action: Cart Addition Trigger
+        // Action: Add item to basket
         function addToCart(index) {
             const prod = products[index];
             const existing = cart.find(item => item.id === prod.id);
@@ -542,7 +544,7 @@
             return parseFloat(cart.reduce((acc, item) => acc + (item.price * item.quantity), 0).toFixed(2));
         }
 
-        // Action: Cart "Proceed to Checkout" Submit Click
+        // Action: Checkout Initiation
         function beginCheckout() {
             toggleCartDrawer(false);
 
@@ -563,7 +565,7 @@
 
             // Generate Modal Form UI
             const sub = getCartSubtotal();
-            const tax = parseFloat((sub * 0.06).toFixed(2)); // Realistic local sales tax
+            const tax = parseFloat((sub * 0.06).toFixed(2)); // Virginia Beach local + state combined sales tax rate (6.0%)
             const grandTotal = parseFloat((sub + tax).toFixed(2));
 
             const checkoutHtml = `
@@ -621,7 +623,7 @@
             showModal(checkoutHtml);
         }
 
-        // Action: Complete Form Purchase Submission
+        // Action: Complete Purchase Form
         function submitPurchase(e) {
             e.preventDefault();
 
@@ -630,7 +632,7 @@
             const grandTotal = parseFloat((sub + tax).toFixed(2));
             const mockTxId = "EMILY-" + Math.floor(100000 + Math.random() * 900000);
 
-            // 6. GA4 purchase (Purchase transaction conversion)
+            // 6. GA4 purchase
             trackGA4Event('purchase', {
                 transaction_id: mockTxId,
                 value: grandTotal,
@@ -667,7 +669,7 @@
 
                     <div class="p-5 bg-stone-50 border border-stone-100 rounded-2xl text-left text-xs text-stone-600 space-y-2">
                         <span class="font-extrabold text-stone-800 block">Console Tag Audit:</span>
-                        <p class="leading-relaxed">A custom e-commerce <code class="font-bold text-emerald-700 bg-emerald-100/60 px-1.5 py-0.5 rounded">purchase</code> conversion array has been dispatched to Google Analytics. Inspect the live logger at the bottom right of your screen to analyze item indices and parameter objects.</p>
+                        <p class="leading-relaxed">A custom e-commerce <code class="font-bold text-emerald-700 bg-emerald-100/60 px-1.5 py-0.5 rounded">purchase</code> conversion array has been dispatched to Google Analytics. Inspect the live logger at the bottom left of your screen to analyze item indices and parameter objects.</p>
                     </div>
 
                     <button onclick="closeModal()" class="mt-6 w-full bg-stone-900 hover:bg-black text-white font-bold py-3.5 rounded-xl text-xs uppercase tracking-wider transition">
