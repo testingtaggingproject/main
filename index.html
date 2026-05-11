@@ -1,4 +1,3 @@
- 
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,82 +13,464 @@
   
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pro-Tagging Sandbox | Marketing Analytics Practice</title>
+    <title>Analytics Shop Sandbox | E-Commerce Tagging Practice</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Inter', sans-serif; }
     </style>
 </head>
-<body class="bg-gray-50">
-    <nav class="bg-white shadow-sm sticky top-0 z-50">
+<body class="bg-gray-50 min-h-screen pb-24">
+
+    <!-- NAVIGATION BAR -->
+    <nav class="bg-white shadow-sm sticky top-0 z-40">
         <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
-            <div class="text-xl font-bold text-indigo-600">AnalyticsAcademy</div>
-            <div class="hidden md:flex space-x-8 text-gray-600 font-medium">
-                <a href="#features" class="hover:text-indigo-600 transition">Features</a>
-                <a href="#pricing" class="hover:text-indigo-600 transition">Pricing</a>
-                <a href="#contact" class="hover:text-indigo-600 transition">Contact</a>
+            <div class="text-xl font-bold text-indigo-600">AnalyticsAcademy <span class="text-xs text-gray-500 font-normal">Shop Sandbox</span></div>
+            <div class="flex items-center space-x-6">
+                <!-- Shopping Cart Icon / Button -->
+                <button onclick="openCart()" class="relative p-2 text-gray-600 hover:text-indigo-600 transition" id="cart-btn" aria-label="Open Shopping Cart">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                    </svg>
+                    <!-- Cart Item Badge -->
+                    <span id="cart-count" class="hidden absolute -top-1 -right-1 bg-indigo-600 text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">0</span>
+                </button>
             </div>
-            <button class="bg-indigo-600 text-white px-5 py-2 rounded-lg hover:bg-indigo-700 transition" id="nav-cta">Get Started</button>
         </div>
     </nav>
 
-    <header class="max-w-6xl mx-auto px-4 py-20 text-center">
-        <h1 class="text-5xl font-bold text-gray-900 mb-6">Master the Art of <span class="text-indigo-600">Digital Tagging</span></h1>
-        <p class="text-xl text-gray-600 mb-10 max-w-2xl mx-auto">This is a sandbox environment designed to test triggers, variables, and the Data Layer. Go ahead—try to track me.</p>
-        <div class="flex justify-center space-x-4">
-            <button class="bg-indigo-600 text-white px-8 py-3 rounded-full text-lg font-semibold hover:shadow-lg transition hero-click" data-button-pos="hero-primary">Download Guide</button>
-            <button class="bg-white text-gray-900 border border-gray-300 px-8 py-3 rounded-full text-lg font-semibold hover:bg-gray-50 transition hero-click" data-button-pos="hero-secondary">Watch Demo</button>
-        </div>
+    <!-- HERO SECTION -->
+    <header class="max-w-6xl mx-auto px-4 py-12 text-center">
+        <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">GA4 E-Commerce <span class="text-indigo-600">Tagging Sandbox</span></h1>
+        <p class="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">Interact with our shop to trigger and log official Google Analytics 4 standard e-commerce events. Inspect payload formatting instantly below!</p>
     </header>
 
-    <section id="features" class="bg-white py-20">
-        <div class="max-w-6xl mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center mb-12">Tracking Use Cases</h2>
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="p-8 border rounded-2xl hover:border-indigo-300 transition group">
-                    <div class="w-12 h-12 bg-indigo-100 text-indigo-600 rounded-lg flex items-center justify-center mb-4 group-hover:bg-indigo-600 group-hover:text-white transition">1</div>
-                    <h3 class="text-xl font-semibold mb-2">Outbound Links</h3>
-                    <p class="text-gray-600 mb-4">Practice tracking when users leave your site.</p>
-                    <a href="https://google.com" class="text-indigo-600 font-medium hover:underline outbound-link">Visit Google &rarr;</a>
-                </div>
-                <div class="p-8 border rounded-2xl hover:border-indigo-300 transition group">
-                    <div class="w-12 h-12 bg-indigo-100 text-indigo-600 rounded-lg flex items-center justify-center mb-4 group-hover:bg-indigo-600 group-hover:text-white transition">2</div>
-                    <h3 class="text-xl font-semibold mb-2">PDF Downloads</h3>
-                    <p class="text-gray-600 mb-4">Learn to trigger tags on specific file extensions.</p>
-                    <a href="/mock-report.pdf" class="text-indigo-600 font-medium hover:underline download-link">Download Case Study (PDF)</a>
-                </div>
-                <div class="p-8 border rounded-2xl hover:border-indigo-300 transition group">
-                    <div class="w-12 h-12 bg-indigo-100 text-indigo-600 rounded-lg flex items-center justify-center mb-4 group-hover:bg-indigo-600 group-hover:text-white transition">3</div>
-                    <h3 class="text-xl font-semibold mb-2">Video Tracking</h3>
-                    <p class="text-gray-600 mb-4">GTM has built-in triggers for YouTube embeds.</p>
-                    <div class="aspect-video bg-gray-200 rounded-lg flex items-center justify-center text-gray-400">[Video Embed Placeholder]</div>
-                </div>
+    <!-- PRODUCT CATALOG SECTION -->
+    <main class="max-w-6xl mx-auto px-4 mb-20">
+        <h2 class="text-2xl font-bold text-gray-800 mb-8">Available Learning Resources</h2>
+        <div id="product-grid" class="grid md:grid-cols-3 gap-8">
+            <!-- Dynamic products will be rendered here by Javascript -->
+        </div>
+    </main>
+
+    <!-- EVENT DEBUGGER TERMINAL (Fixed in Bottom Corner) -->
+    <section id="event-console" class="fixed bottom-4 right-4 w-[380px] bg-gray-900 text-green-400 rounded-xl shadow-2xl border border-gray-700 z-50 flex flex-col max-h-[420px] transition-all duration-300 transform">
+        <header class="px-4 py-3 border-b border-gray-800 flex justify-between items-center bg-gray-950 rounded-t-xl">
+            <span class="font-mono text-xs font-bold flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-green-500 animate-pulse"></span>
+                GA4 DataLayer Live Feed
+            </span>
+            <div class="flex space-x-2">
+                <button onclick="clearLogs()" class="text-[10px] text-gray-400 hover:text-white px-2 py-0.5 rounded border border-gray-700 hover:border-gray-500 transition">Clear</button>
+                <button onclick="toggleConsole()" id="toggle-console-btn" class="text-[10px] text-gray-400 hover:text-white px-2 py-0.5 rounded border border-gray-700 hover:border-gray-500 transition">Minimize</button>
             </div>
+        </header>
+        <div id="console-logs" class="p-4 overflow-y-auto text-xs font-mono flex-1 space-y-3 max-h-[350px]">
+            <div class="text-gray-500 italic">// Interact with the shop to track standard ecommerce GA4 events. Logs will generate dynamically here.</div>
         </div>
     </section>
 
-    <section id="contact" class="max-w-xl mx-auto px-4 py-20">
-        <div class="bg-white p-10 rounded-3xl shadow-xl border border-gray-100">
-            <h2 class="text-2xl font-bold mb-6 text-center">Practice Form Submission</h2>
-            <form id="practice-form" onsubmit="event.preventDefault(); alert('Form submitted! In GTM, look for the gtm.formSubmit event.');">
-                <div class="mb-4">
-                    <label class="block text-sm font-semibold mb-2">Full Name</label>
-                    <input type="text" id="user_name" class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-indigo-500 outline-none" required>
-                </div>
-                <div class="mb-4">
-                    <label class="block text-sm font-semibold mb-2">Email Address</label>
-                    <input type="email" id="user_email" class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-indigo-500 outline-none" required>
-                </div>
-                <button type="submit" class="w-full bg-indigo-600 text-white py-3 rounded-lg font-bold hover:bg-indigo-700 transition">Submit Lead</button>
-            </form>
+    <!-- DYNAMIC DIALOG MODAL BASE (Used for Details, Cart, Checkout, Success UI states) -->
+    <div id="modal-backdrop" class="fixed inset-0 bg-black/50 z-50 hidden backdrop-blur-sm transition-opacity duration-300 flex items-center justify-center p-4">
+        <div id="modal-card" class="bg-white rounded-2xl max-w-lg w-full p-6 shadow-2xl relative transition-transform duration-300 transform scale-95 max-h-[90vh] overflow-y-auto">
+            <!-- Dynamic Modal Content Enters Here -->
         </div>
-    </section>
+    </div>
 
-    <footer class="py-10 text-center text-gray-500 text-sm">
-        &copy; 2026 Tagging Mentorship Program. No rights reserved—this is for learning!
+    <footer class="py-10 text-center text-gray-400 text-xs border-t border-gray-200">
+        &copy; 2026 Tagging Mentorship Program. Built with pedagogical intent for code sandboxes.
     </footer>
 
+    <!-- INTERACTIVE SHOPPING & TRACKING ENGINE -->
+    <script>
+        // Mock Products Database
+        const products = [
+            { id: "PROD_001", name: "GA4 Audit Master Checklist", price: 29.00, category: "Templates", brand: "AnalyticsAcademy", variant: "PDF Download", desc: "A comprehensive structural blueprint to audit configuration mismatches, custom metrics, and tag triggers in under an hour." },
+            { id: "PROD_002", name: "GTM Custom Event Recipes Bundle", price: 49.00, category: "Code Snippets", brand: "AnalyticsAcademy", variant: "JSON Export", desc: "Instantly importable JSON packages to track scroll depth, YouTube interactions, video player actions, and contact submissions." },
+            { id: "PROD_003", name: "Server-Side Tagging Masterclass", price: 199.00, category: "Courses", brand: "AnalyticsAcademy", variant: "Full Access Video", desc: "Deep-dive cohort course detailing cloud server deployments, custom clients, geo-routing, and security-first setups." }
+        ];
+
+        let cart = [];
+        let isConsoleCollapsed = false;
+
+        // Custom Event Broadcaster / Interceptor
+        function trackGA4Event(eventName, params) {
+            // 1. Push standard call to Analytics Engine
+            gtag('event', eventName, params);
+
+            // 2. Render visually inside UI Log Terminal
+            const consoleLogs = document.getElementById('console-logs');
+            if (consoleLogs.innerHTML.includes('// Interact with')) {
+                consoleLogs.innerHTML = '';
+            }
+
+            const logEntry = document.createElement('div');
+            logEntry.className = "border-b border-gray-800 pb-3 last:border-0";
+            logEntry.innerHTML = `
+                <div class="flex justify-between items-center mb-1">
+                    <span class="text-indigo-400 font-bold text-[11px]">gtag("event", "${eventName}")</span>
+                    <span class="text-[9px] text-gray-500">${new Date().toLocaleTimeString()}</span>
+                </div>
+                <pre class="text-[10px] text-gray-300 overflow-x-auto bg-gray-950 p-2.5 rounded border border-gray-800">${JSON.stringify(params, null, 2)}</pre>
+            `;
+            consoleLogs.appendChild(logEntry);
+            consoleLogs.scrollTop = consoleLogs.scrollHeight;
+        }
+
+        // Toggle Console Minimization
+        function toggleConsole() {
+            const el = document.getElementById('event-console');
+            const logs = document.getElementById('console-logs');
+            const btn = document.getElementById('toggle-console-btn');
+            
+            if (isConsoleCollapsed) {
+                logs.style.display = 'block';
+                el.style.height = 'auto';
+                btn.innerText = 'Minimize';
+                isConsoleCollapsed = false;
+            } else {
+                logs.style.display = 'none';
+                el.style.height = '42px';
+                btn.innerText = 'Expand';
+                isConsoleCollapsed = true;
+            }
+        }
+
+        function clearLogs() {
+            document.getElementById('console-logs').innerHTML = `<div class="text-gray-500 italic">// Cleared. Perform actions on-page to record events.</div>`;
+        }
+
+        // Load and Render Catalog Cards
+        window.addEventListener('DOMContentLoaded', () => {
+            const grid = document.getElementById('product-grid');
+            grid.innerHTML = products.map((prod, index) => `
+                <div class="bg-white border border-gray-200 rounded-2xl p-6 hover:shadow-xl transition flex flex-col justify-between group relative overflow-hidden">
+                    <div class="absolute top-0 right-0 bg-indigo-50 text-indigo-700 text-[10px] font-bold px-3 py-1 rounded-bl-xl uppercase tracking-wide">${prod.category}</div>
+                    <div>
+                        <div class="w-12 h-12 bg-indigo-100 text-indigo-600 rounded-xl flex items-center justify-center mb-4 font-bold text-lg">${index + 1}</div>
+                        <h3 class="text-xl font-bold text-gray-900 group-hover:text-indigo-600 transition mb-2">${prod.name}</h3>
+                        <p class="text-gray-500 text-sm mb-4 line-clamp-2">${prod.desc}</p>
+                    </div>
+                    <div class="mt-6">
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="text-2xl font-bold text-gray-900">$${prod.price.toFixed(2)}</span>
+                            <span class="text-xs text-gray-400 font-mono">[gtag: select_item]</span>
+                        </div>
+                        <button onclick="selectProduct(${index})" class="w-full bg-indigo-50 text-indigo-600 hover:bg-indigo-600 hover:text-white font-bold py-2.5 rounded-xl transition text-sm">View Details</button>
+                    </div>
+                </div>
+            `).join('');
+
+            // E-Commerce Event 1: view_item_list
+            trackGA4Event('view_item_list', {
+                item_list_id: "catalog_all",
+                item_list_name: "Resource Catalog",
+                items: products.map((prod, index) => ({
+                    item_id: prod.id,
+                    item_name: prod.name,
+                    index: index + 1,
+                    item_brand: prod.brand,
+                    item_category: prod.category,
+                    item_variant: prod.variant,
+                    price: prod.price
+                }))
+            });
+        });
+
+        // Open Dialog Modal Helper
+        function showModal(contentHtml) {
+            const backdrop = document.getElementById('modal-backdrop');
+            const card = document.getElementById('modal-card');
+            card.innerHTML = contentHtml;
+            backdrop.classList.remove('hidden');
+            backdrop.classList.add('flex');
+        }
+
+        // Close Dialog Modal Helper
+        function closeModal() {
+            const backdrop = document.getElementById('modal-backdrop');
+            backdrop.classList.remove('flex');
+            backdrop.classList.add('hidden');
+        }
+
+        // Action: Click Product Card
+        function selectProduct(index) {
+            const prod = products[index];
+
+            // E-Commerce Event 2: select_item
+            trackGA4Event('select_item', {
+                item_list_id: "catalog_all",
+                item_list_name: "Resource Catalog",
+                items: [{
+                    item_id: prod.id,
+                    item_name: prod.name,
+                    index: index + 1,
+                    item_brand: prod.brand,
+                    item_category: prod.category,
+                    item_variant: prod.variant,
+                    price: prod.price
+                }]
+            });
+
+            // E-Commerce Event 3: view_item
+            trackGA4Event('view_item', {
+                currency: "USD",
+                value: prod.price,
+                items: [{
+                    item_id: prod.id,
+                    item_name: prod.name,
+                    item_brand: prod.brand,
+                    item_category: prod.category,
+                    item_variant: prod.variant,
+                    price: prod.price,
+                    quantity: 1
+                }]
+            });
+
+            // Open Detail Modal (PDP View)
+            const detailsHtml = `
+                <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-700">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+                </button>
+                <div class="mb-2"><span class="text-xs bg-indigo-100 text-indigo-700 px-2.5 py-1 rounded-full font-bold uppercase">${prod.category}</span></div>
+                <h3 class="text-2xl font-bold text-gray-900 mb-2">${prod.name}</h3>
+                <p class="text-sm font-semibold text-gray-400 mb-4">Format: ${prod.variant}</p>
+                <p class="text-gray-600 text-sm leading-relaxed mb-6">${prod.desc}</p>
+                <div class="flex justify-between items-center border-t border-gray-100 pt-6">
+                    <div>
+                        <p class="text-[10px] uppercase text-gray-400 tracking-wider font-semibold">Total Price</p>
+                        <p class="text-3xl font-extrabold text-gray-900">$${prod.price.toFixed(2)}</p>
+                    </div>
+                    <div class="text-right">
+                        <span class="text-[10px] text-gray-400 font-mono block mb-2">[gtag: add_to_cart]</span>
+                        <button onclick="addToCart(${index})" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold px-6 py-3 rounded-xl transition shadow-lg shadow-indigo-600/20 text-sm">Add to Cart</button>
+                    </div>
+                </div>
+            `;
+            showModal(detailsHtml);
+        }
+
+        // Action: Click "Add to Cart"
+        function addToCart(index) {
+            const prod = products[index];
+            const existing = cart.find(item => item.id === prod.id);
+
+            if (existing) {
+                existing.quantity += 1;
+            } else {
+                cart.push({ ...prod, quantity: 1 });
+            }
+
+            // E-Commerce Event 4: add_to_cart
+            trackGA4Event('add_to_cart', {
+                currency: "USD",
+                value: prod.price,
+                items: [{
+                    item_id: prod.id,
+                    item_name: prod.name,
+                    item_brand: prod.brand,
+                    item_category: prod.category,
+                    item_variant: prod.variant,
+                    price: prod.price,
+                    quantity: 1
+                }]
+            });
+
+            updateCartBadge();
+            closeModal();
+        }
+
+        // Update Cart Header Badge Bubble
+        function updateCartBadge() {
+            const badge = document.getElementById('cart-count');
+            const totalQty = cart.reduce((acc, item) => acc + item.quantity, 0);
+            if (totalQty > 0) {
+                badge.innerText = totalQty;
+                badge.classList.remove('hidden');
+            } else {
+                badge.classList.add('hidden');
+            }
+        }
+
+        // Calculations helper
+        function getCartValue() {
+            return parseFloat(cart.reduce((acc, item) => acc + (item.price * item.quantity), 0).toFixed(2));
+        }
+
+        // Action: Click Shopping Cart Icon
+        function openCart() {
+            if (cart.length === 0) {
+                const emptyCartHtml = `
+                    <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-700">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+                    </button>
+                    <div class="text-center py-10">
+                        <div class="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" /></svg>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-900 mb-2">Your Cart is Empty</h3>
+                        <p class="text-gray-500 text-sm mb-6">Select interactive product guides to construct a checkout scenario.</p>
+                        <button onclick="closeModal()" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold px-5 py-2 rounded-lg text-sm transition">Back to Store</button>
+                    </div>
+                `;
+                showModal(emptyCartHtml);
+                return;
+            }
+
+            // E-Commerce Event 5: view_cart
+            trackGA4Event('view_cart', {
+                currency: "USD",
+                value: getCartValue(),
+                items: cart.map(item => ({
+                    item_id: item.id,
+                    item_name: item.name,
+                    item_brand: item.brand,
+                    item_category: item.category,
+                    item_variant: item.variant,
+                    price: item.price,
+                    quantity: item.quantity
+                }))
+            });
+
+            // Open Modal showing current cart
+            const cartHtml = `
+                <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-700">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+                </button>
+                <h3 class="text-xl font-bold text-gray-900 mb-6">Review Shopping Cart</h3>
+                <div class="space-y-4 mb-6">
+                    ${cart.map(item => `
+                        <div class="flex justify-between items-center border-b border-gray-100 pb-4">
+                            <div>
+                                <h4 class="font-bold text-gray-800 text-sm">${item.name}</h4>
+                                <p class="text-xs text-gray-400">Qty: ${item.quantity} &bull; $${item.price.toFixed(2)} ea</p>
+                            </div>
+                            <span class="font-semibold text-gray-900 text-sm">$${(item.price * item.quantity).toFixed(2)}</span>
+                        </div>
+                    `).join('')}
+                </div>
+                <div class="bg-gray-50 p-4 rounded-xl mb-6">
+                    <div class="flex justify-between font-bold text-gray-900">
+                        <span>Cart Subtotal:</span>
+                        <span>$${getCartValue().toFixed(2)}</span>
+                    </div>
+                </div>
+                <div class="flex justify-between items-center pt-2">
+                    <span class="text-xs text-gray-400 font-mono">[gtag: begin_checkout]</span>
+                    <button onclick="beginCheckout()" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold px-6 py-3 rounded-xl transition text-sm">Proceed to Checkout</button>
+                </div>
+            `;
+            showModal(cartHtml);
+        }
+
+        // Action: Click "Proceed to Checkout"
+        function beginCheckout() {
+            // E-Commerce Event 6: begin_checkout
+            trackGA4Event('begin_checkout', {
+                currency: "USD",
+                value: getCartValue(),
+                items: cart.map(item => ({
+                    item_id: item.id,
+                    item_name: item.name,
+                    item_brand: item.brand,
+                    item_category: item.category,
+                    item_variant: item.variant,
+                    price: item.price,
+                    quantity: item.quantity
+                }))
+            });
+
+            // Open mock form submission modal
+            const checkoutHtml = `
+                <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-700">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+                </button>
+                <h3 class="text-xl font-bold text-gray-900 mb-6">Simulated Checkout Form</h3>
+                <form id="checkout-form" onsubmit="submitPurchase(event)" class="space-y-4">
+                    <div>
+                        <label class="block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">Customer Name</label>
+                        <input type="text" id="cust_name" placeholder="Alex Tagman" class="w-full p-3 border rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none text-sm" required>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">Email Address</label>
+                        <input type="email" id="cust_email" placeholder="alex@taggingacademy.com" class="w-full p-3 border rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none text-sm" required>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">Mock Credit Card (Test Only)</label>
+                        <input type="text" placeholder="4242 4242 4242 4242" class="w-full p-3 border border-indigo-200 bg-indigo-50/30 rounded-xl outline-none text-sm text-gray-600" disabled>
+                    </div>
+                    <div class="bg-gray-50 p-4 rounded-xl my-4 space-y-1 text-sm text-gray-600">
+                        <div class="flex justify-between">
+                            <span>Cart Total:</span>
+                            <span>$${getCartValue().toFixed(2)}</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>Sales Tax (8%):</span>
+                            <span>$${(getCartValue() * 0.08).toFixed(2)}</span>
+                        </div>
+                        <div class="flex justify-between font-bold text-gray-900 text-base pt-2 border-t">
+                            <span>Total Charge:</span>
+                            <span>$${(getCartValue() * 1.08).toFixed(2)}</span>
+                        </div>
+                    </div>
+                    <div class="flex justify-between items-center pt-2">
+                        <span class="text-xs text-gray-400 font-mono">[gtag: purchase]</span>
+                        <button type="submit" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold px-8 py-3 rounded-xl transition text-sm">Place Order ($${(getCartValue() * 1.08).toFixed(2)})</button>
+                    </div>
+                </form>
+            `;
+            showModal(checkoutHtml);
+        }
+
+        // Action: Submit checkout-form (Mock payment success)
+        function submitPurchase(e) {
+            e.preventDefault();
+
+            const finalCartValue = getCartValue();
+            const taxAmt = parseFloat((finalCartValue * 0.08).toFixed(2));
+            const transactionId = "T_" + Math.floor(100000 + Math.random() * 900000);
+
+            // E-Commerce Event 7: purchase
+            trackGA4Event('purchase', {
+                transaction_id: transactionId,
+                value: parseFloat((finalCartValue + taxAmt).toFixed(2)),
+                tax: taxAmt,
+                shipping: 0.00,
+                currency: "USD",
+                items: cart.map(item => ({
+                    item_id: item.id,
+                    item_name: item.name,
+                    item_brand: item.brand,
+                    item_category: item.category,
+                    item_variant: item.variant,
+                    price: item.price,
+                    quantity: item.quantity
+                }))
+            });
+
+            // Wipe Checkout Context
+            cart = [];
+            updateCartBadge();
+
+            // Render confirmation screen
+            const successHtml = `
+                <div class="text-center py-8">
+                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-2">Order Confirmed!</h3>
+                    <p class="text-gray-500 text-sm mb-1">Simulated payment processed successfully.</p>
+                    <p class="text-indigo-600 font-mono text-xs font-bold mb-6">Transaction ID: ${transactionId}</p>
+                    <div class="bg-gray-50 p-4 rounded-xl border border-gray-100 text-left mb-6 text-xs text-gray-600 leading-relaxed">
+                        <span class="font-bold text-gray-800 block mb-1">Analytics Verification Check:</span>
+                        A <code class="font-bold text-indigo-700 bg-indigo-50 px-1 rounded">purchase</code> event was sent directly to your GA4 property tracking total values, custom items, and index locations. Inspect the Logger at the bottom-right of the viewport to view details!
+                    </div>
+                    <button onclick="closeModal()" class="bg-gray-900 hover:bg-black text-white font-bold px-6 py-2.5 rounded-xl text-sm transition">Continue Sandbox Testing</button>
+                </div>
+            `;
+            showModal(successHtml);
+        }
+    </script>
 </body>
 </html>
